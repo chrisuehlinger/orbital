@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "FIRST_BOOT_DURATION=`cat /home/pi/first-boot-duration.log` THIS_BOOT_DURATION=`cat /home/pi/this-boot-duration.log` electron ."
   },
   "author": "",
   "license": "ISC",
