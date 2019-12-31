@@ -1,5 +1,8 @@
 const { app, BrowserWindow } = require('electron')
 
+// Source: https://thecodersblog.com/play-video-unmuted-in-electron-app/
+app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required")
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -14,13 +17,19 @@ function createWindow () {
     x: 0,
     y: 0,
     autoHideMenuBar: true,
+    kiosk: true,
+    webSecurity: false,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  // win.loadFile('index.html')
+  win.loadURL('https://www.youtube.com/watch?v=GZxU_pf4p7Q')
+  setTimeout(() => {
+    win.loadFile('index.html')
+  }, 7*1000)
 
   // Open the DevTools.
   // win.webContents.openDevTools()
