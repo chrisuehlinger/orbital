@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Hello There World!</h1>
+    <p>This computer is <strong><script>document.write(require('os').hostname().split('.')[0])</script></strong></p>
     <p>The first boot took <script>document.write(process.env.FIRST_BOOT_DURATION || '(unknown)')</script> seconds.</p>
     <p>This boot took <script>document.write(process.env.THIS_BOOT_DURATION || '(unknown)')</script> seconds.</p>
     <p>We are using node <script>document.write(process.versions.node)</script>,
