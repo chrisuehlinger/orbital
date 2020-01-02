@@ -37,7 +37,7 @@ function createWindow (display) {
     y: display.bounds.y,
     autoHideMenuBar: true,
     kiosk: true,
-    webSecurity: false,
+    webSecurity: true,
     backgroundColor: '#000'
   })
 
