@@ -46,7 +46,7 @@ function createWindow (display) {
   win.loadURL(`https://commodore.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
 
   // Open the DevTools.
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
