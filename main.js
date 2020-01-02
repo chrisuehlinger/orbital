@@ -21,7 +21,10 @@ function init(){
     }
   }
 
-  screen.on('display-added', (event, newDisplay) => createWindow(newDisplay));
+  screen.on('display-added', (event, newDisplay) => {
+    console.log('NEW WINDOW', display);
+    createWindow(newDisplay)
+  });
   screen.on('display-removed', (event, oldDisplay) => destroyWindow(oldDisplay));
 }
 
@@ -63,6 +66,7 @@ function createWindow (display) {
 }
 
 function destroyWindow(display){
+  console.log('DESTROY WINDOW', display);
   for(let i=0; i < winStructs.length; i++) {
     let winStruct = winStructs[i];
     if(winStruct.display.id === display.id) {
