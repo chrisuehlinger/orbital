@@ -2,6 +2,8 @@ const { app, BrowserWindow, screen } = require('electron')
 const os = require('os');
 
 const HOSTNAME = os.hostname().split('.')[0];
+// const SERVER_HOSTNAME = 'HOBNJML-N0CUG8W';
+const SERVER_HOSTNAME = 'commodore';
 
 // Source: https://thecodersblog.com/play-video-unmuted-in-electron-app/
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required")
@@ -46,7 +48,7 @@ function createWindow (display) {
 
   // and load the index.html of the app.
   // win.loadFile('index.html')
-  win.loadURL(`https://HOBNJML-N0CUG8W.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
+  win.loadURL(`https://${SERVER_HOSTNAME}.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
 
   // Open the DevTools.
   // win.webContents.openDevTools()
