@@ -46,7 +46,7 @@ function createWindow (display) {
 
   // and load the index.html of the app.
   // win.loadFile('index.html')
-  win.loadURL(`https://commodore.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
+  win.loadURL(`https://HOBNJML-N0CUG8W.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
 
   // Open the DevTools.
   // win.webContents.openDevTools()
