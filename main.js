@@ -7,6 +7,8 @@ const SERVER_HOSTNAME = 'commodore';
 
 const MAIN_DISPLAY_ID = 69731852;
 
+const isOrbital = HOSTNAME.indexOf('orbital') !== -1;
+
 // Source: https://thecodersblog.com/play-video-unmuted-in-electron-app/
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required")
 
@@ -35,12 +37,11 @@ function init(){
 
 function createWindow (display) {
   // Create the browser window.
-  let win = new BrowserWindow({
-
+  let options = {
     // width: 1920,
     // height: 1080,
     frame: false,
-    // fullscreen: true,
+    fullscreen: isOrbital,
     x: display.bounds.x,
     y: display.bounds.y,
     autoHideMenuBar: true,
@@ -48,7 +49,14 @@ function createWindow (display) {
     webSecurity: false,
     backgroundColor: '#000'
     // backgroundColor: 'transparent'
-  })
+  };
+
+  if (!isOrbital) {
+    options.width = display.bounds.width;
+    options.height = display.bounds.height;
+  }
+
+  let win = new BrowserWindow(options)
 
   // and load the index.html of the app.
   // win.loadFile('index.html')
