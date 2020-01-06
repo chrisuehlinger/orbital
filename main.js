@@ -5,6 +5,8 @@ const HOSTNAME = os.hostname().split('.')[0];
 // const SERVER_HOSTNAME = 'HOBNJML-N0CUG8W';
 const SERVER_HOSTNAME = 'commodore';
 
+const MAIN_DISPLAY_ID = 69731852;
+
 // Source: https://thecodersblog.com/play-video-unmuted-in-electron-app/
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required")
 
@@ -18,13 +20,13 @@ function init(){
   for(let i = 0; i < displays.length; i++){
     let display = displays[i];
     console.log('DISPLAY', display);
-    if(!display.internal) {
+    if(display.id !== MAIN_DISPLAY_ID) {
       createWindow(display);
     }
   }
 
   screen.on('display-added', (event, newDisplay) => {
-    console.log('NEW WINDOW', display);
+    console.log('NEW WINDOW', newDisplay);
     createWindow(newDisplay)
   });
   screen.on('display-removed', (event, oldDisplay) => destroyWindow(oldDisplay));
@@ -34,16 +36,18 @@ function init(){
 function createWindow (display) {
   // Create the browser window.
   let win = new BrowserWindow({
+
     // width: 1920,
     // height: 1080,
     frame: false,
-    fullscreen: true,
+    // fullscreen: true,
     x: display.bounds.x,
     y: display.bounds.y,
     autoHideMenuBar: true,
-    kiosk: true,
-    webSecurity: true,
+    // kiosk: true,
+    webSecurity: false,
     backgroundColor: '#000'
+    // backgroundColor: 'transparent'
   })
 
   // and load the index.html of the app.
@@ -51,7 +55,7 @@ function createWindow (display) {
   win.loadURL(`https://${SERVER_HOSTNAME}.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
 
   // Open the DevTools.
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
