@@ -61,11 +61,13 @@ function createWindow (display) {
 
   // and load the index.html of the app.
   // win.loadFile('index.html')
+  win.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
+    console.error('PAGE FAILED TO LOAD', errorCode, errorDescription);
+  });
   win.loadURL(`http://${SERVER_HOSTNAME}.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`)
 
   // Open the DevTools.
   win.webContents.openDevTools()
-
   // Emitted when the window is closed.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
