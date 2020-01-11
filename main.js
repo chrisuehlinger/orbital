@@ -3,7 +3,8 @@ const os = require('os');
 
 const HOSTNAME = os.hostname().split('.')[0];
 // const SERVER_HOSTNAME = 'HOBNJML-N0CUG8W';
-const SERVER_HOSTNAME = 'commodore';
+// const SERVER_HOSTNAME = 'commodore';
+const SERVER_HOSTNAME = '192.168.0.154';
 
 const MAIN_DISPLAY_ID = 69731852;
 
