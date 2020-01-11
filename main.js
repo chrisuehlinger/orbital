@@ -61,7 +61,7 @@ function createWindow (display) {
 
   // and load the index.html of the app.
   // win.loadFile('index.html')
-  let theURL = `http://${SERVER_HOSTNAME}.local/orbital.html?host=${HOSTNAME}&displayid=${display.id}`;
+  let theURL = `http://${SERVER_HOSTNAME}/orbital.html?host=${HOSTNAME}&displayid=${display.id}`;
   console.log(theURL)
   win.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
     console.error('PAGE FAILED TO LOAD', errorCode, errorDescription);
