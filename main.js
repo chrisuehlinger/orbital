@@ -4,7 +4,7 @@ const os = require('os');
 const HOSTNAME = os.hostname().split('.')[0];
 // const SERVER_HOSTNAME = 'HOBNJML-N0CUG8W';
 // const SERVER_HOSTNAME = 'commodore';
-const SERVER_HOSTNAME = '192.168.0.154';
+const SERVER_HOSTNAME = '192.168.0.100';
 
 const MAIN_DISPLAY_ID = 69731852;
 
@@ -66,7 +66,6 @@ function createWindow (display) {
   win.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
     console.error('PAGE FAILED TO LOAD', errorCode, errorDescription);
     setTimeout(() => {
-
       win.loadURL(theURL);
     }, 1000);
   });
