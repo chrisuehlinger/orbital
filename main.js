@@ -4,7 +4,8 @@ const os = require('os');
 const HOSTNAME = os.hostname().split('.')[0];
 // const SERVER_HOSTNAME = 'HOBNJML-N0CUG8W';
 // const SERVER_HOSTNAME = 'commodore';
-const SERVER_HOSTNAME = '192.168.0.100';
+// const SERVER_HOSTNAME = '192.168.0.100';
+const SERVER_HOSTNAME = 'amiga.local:8443';
 
 const MAIN_DISPLAY_ID = 69731852;
 
@@ -61,7 +62,7 @@ function createWindow (display) {
 
   // and load the index.html of the app.
   // win.loadFile('index.html')
-  let theURL = `http://${SERVER_HOSTNAME}/orbital.html?host=${HOSTNAME}&displayid=${display.id}`;
+  let theURL = `https://${SERVER_HOSTNAME}/orbital.html?host=${HOSTNAME}&displayid=${display.id}`;
   console.log(theURL)
   win.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
     console.error('PAGE FAILED TO LOAD', errorCode, errorDescription);
